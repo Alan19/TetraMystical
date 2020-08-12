@@ -1,0 +1,123 @@
+buildscript {
+    repositories {
+        maven { url = 'https://files.minecraftforge.net/maven' }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+    }
+}
+apply plugin: 'net.minecraftforge.gradle'
+// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+
+version = '1.0'
+group = 'com.alan19.tetramystical' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'tetramystical'
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+//Print out JVM information so that we know what version is running. Extreamly useful for people to know when helping you.
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+minecraft {
+    mappings channel: 'snapshot', version: '20200514-1.15.1'
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                astral {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                astral {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file("run")
+            environment 'target', 'fmluserdevdata'
+            properties 'fml.earlyprogresswindow': 'false'
+
+            args '--all', '--output', file('src/generated/resources/'),
+                    '--mod', 'tetramystical', '--reports',
+                    '--existing', sourceSets.main.resources.srcDirs[0]
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        // for JEI
+        name "progwml6"
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        url = "https://www.cursemaven.com"
+    }
+    maven {
+        // for Patchouli
+        name "blamejared"
+        url "http://maven.blamejared.com/"
+    }
+}
+
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.36'
+    runtimeOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.4")
+    compile fg.deobf('curse.maven:mystical-world:3025900')
+    compile fg.deobf('curse.maven:tetra:3023406')
+    compile fg.deobf('curse.maven:tetraits:3022588')
+    compile fg.deobf('curse.maven:mysticallib:3005515')
+    compile fg.deobf('curse.maven:mgui:2928277')
+    compile fg.deobf("vazkii.patchouli:Patchouli:1.15.2-1.2-34.184")
+}
+
+// Example for how to get properties into the manifest for reading by the runtime..
+jar {
+    manifest {
+        attributes([
+            "Specification-Title": "tetramystical",
+            "Specification-Vendor": "alan19",
+            "Specification-Version": "1", // We are version 1 of ourselves
+            "Implementation-Title": project.name,
+            "Implementation-Version": "${version}",
+            "Implementation-Vendor" :"alan19",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
