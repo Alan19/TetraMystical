@@ -77,7 +77,7 @@ public class TetraMaterialProvider implements IDataProvider {
                 .offsetOutcome(2, 0) // offsets the amount of material required (defined per material above) by a multiplier of two
                 .offsetDurability(-20, 0.7f)
                 .offsetSpeed(-0.1f, 1)
-                .addVariant(amethyst, Pair.of("enchantment/looting", 1));
+                .addVariant(amethyst, "mysticalworld:amethyst_axe", Pair.of("enchantment/looting", 1));
 
         setupModule("double/butt", "butt", "%s butt", "butt/iron", "double/butt/butt")
                 .offsetOutcome(1, -1)

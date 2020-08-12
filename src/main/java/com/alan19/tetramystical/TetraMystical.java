@@ -18,8 +18,10 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.stream.Collectors;
 
+import static com.alan19.tetramystical.TetraMystical.MOD_ID;
+
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("examplemod")
+@Mod(MOD_ID)
 public class TetraMystical
 {
     public static final String MOD_ID = "tetramystical";
@@ -55,7 +57,7 @@ public class TetraMystical
     private void enqueueIMC(final InterModEnqueueEvent event)
     {
         // some example code to dispatch IMC to another mod
-        InterModComms.sendTo("examplemod", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
+        InterModComms.sendTo("tetramystical", "helloworld", () -> { LOGGER.info("Hello world from the MDK"); return "Hello world";});
     }
 
     private void processIMC(final InterModProcessEvent event)
