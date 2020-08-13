@@ -23,7 +23,7 @@
           8.88888794698843
         ]
       },
-      "effect": {}
+      "effects": {}
     },
     {
       "key": "butt/quicksilver",
@@ -48,7 +48,7 @@
           4.2857139937731885
         ]
       },
-      "effect": {
+      "effects": {
         "quickStrike": 1
       }
     },
@@ -68,7 +68,7 @@
           "tint": "649832"
         }
       ],
-      "effect": {}
+      "effects": {}
     }
   ]
 }

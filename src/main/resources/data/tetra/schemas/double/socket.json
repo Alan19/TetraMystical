@@ -30,20 +30,6 @@
       },
       "moduleKey": "double/socket",
       "moduleVariant": "double_socket/quicksilver"
-    },
-    {
-      "material": {
-        "tag": "forge:gems/amethyst"
-      },
-      "requiredCapabilities": {
-        "hammer": 2
-      },
-      "moduleKey": "double/socket",
-      "moduleVariant": "double_socket/amethyst",
-      "improvements": {
-        "enchantment/fortune": 1,
-        "enchantment/looting": 1
-      }
     }
   ]
 }

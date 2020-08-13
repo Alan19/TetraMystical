@@ -23,7 +23,7 @@
           6.666666401757145
         ]
       },
-      "effect": {}
+      "effects": {}
     },
     {
       "key": "basic_pickaxe/quicksilver",
@@ -48,7 +48,7 @@
           4.999999801317859
         ]
       },
-      "effect": {
+      "effects": {
         "quickStrike": 1
       }
     },
@@ -75,7 +75,7 @@
           3.3333332008785725
         ]
       },
-      "effect": {}
+      "effects": {}
     }
   ]
 }

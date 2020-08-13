@@ -23,7 +23,7 @@
           "tint": "9f3ccf"
         }
       ],
-      "effect": {}
+      "effects": {}
     },
     {
       "key": "short_blade/quicksilver",
@@ -48,7 +48,7 @@
           "tint": "b4c3c4"
         }
       ],
-      "effect": {
+      "effects": {
         "quickStrike": 1
       }
     },
@@ -75,7 +75,7 @@
           "tint": "649832"
         }
       ],
-      "effect": {}
+      "effects": {}
     }
   ]
 }

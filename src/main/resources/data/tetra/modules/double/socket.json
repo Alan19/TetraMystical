@@ -2,9 +2,9 @@
   "variants": [
     {
       "key": "double_socket/tin",
-      "durability": 512,
+      "durability": 12,
       "durabilityMultiplier": 0.8,
-      "integrity": 0,
+      "integrity": -1,
       "range": 0.25,
       "glyph": {
         "tint": "d9f3ccf",
@@ -36,13 +36,13 @@
         ]
       },
       "magicCapacity": 72,
-      "effect": {}
+      "effects": {}
     },
     {
       "key": "double_socket/lead",
-      "durability": 512,
+      "durability": 11,
       "durabilityMultiplier": 0.8,
-      "integrity": 0,
+      "integrity": -1,
       "glyph": {
         "tint": "d9f3ccf",
         "textureX": 80,
@@ -73,13 +73,13 @@
         ]
       },
       "magicCapacity": 66,
-      "effect": {
+      "effects": {
         "toughness": 1
       }
     },
     {
       "key": "double_socket/quicksilver",
-      "durability": 512,
+      "durability": 10,
       "durabilityMultiplier": 0.8,
       "integrity": -1,
       "glyph": {
@@ -112,46 +112,9 @@
         ]
       },
       "magicCapacity": 110,
-      "effect": {
+      "effects": {
         "quickStrike": 1
       }
-    },
-    {
-      "key": "double_socket/amethyst",
-      "durability": 512,
-      "durabilityMultiplier": 0.8,
-      "integrity": -1,
-      "glyph": {
-        "tint": "d9f3ccf",
-        "textureX": 80,
-        "textureY": 16
-      },
-      "models": [
-        {
-          "location": "tetra:items/module/double/binding/socket/default",
-          "tint": "9f3ccf"
-        }
-      ],
-      "capabilities": {
-        "axe": [
-          0,
-          1
-        ],
-        "shovel": [
-          0,
-          1
-        ],
-        "pickaxe": [
-          0,
-          1
-        ],
-        "cut": [
-          0,
-          1
-        ]
-      },
-      "magicCapacity": 70,
-      "effect": {}
     }
   ]
 }
