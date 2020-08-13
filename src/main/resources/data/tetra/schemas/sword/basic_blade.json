@@ -1,0 +1,28 @@
+{
+  "outcomes": [
+    {
+      "material": {
+        "tag": "forge:gems/amethyst"
+      },
+      "requiredCapabilities": {
+        "hammer": 2
+      },
+      "moduleKey": "sword/basic_blade",
+      "moduleVariant": "basic_blade/amethyst",
+      "improvements": {
+        "enchantment/fortune": 1,
+        "enchantment/looting": 1
+      }
+    },
+    {
+      "material": {
+        "tag": "forge:ingots/tin"
+      },
+      "requiredCapabilities": {
+        "hammer": 1
+      },
+      "moduleKey": "sword/basic_blade",
+      "moduleVariant": "basic_blade/tin"
+    }
+  ]
+}

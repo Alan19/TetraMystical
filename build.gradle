@@ -56,9 +56,10 @@ minecraft {
             environment 'target', 'fmluserdevdata'
             properties 'fml.earlyprogresswindow': 'false'
 
-            args '--all', '--output', file('src/generated/resources/'),
-                    '--mod', 'tetramystical', '--reports',
-                    '--existing', sourceSets.main.resources.srcDirs[0]
+            args '--all',
+                    '--output', file('src/generated/resources/'),
+                    '--existing', sourceSets.main.resources.srcDirs[0],
+                    '--mod', 'tetramystical', '--reports'
         }
     }
 }
@@ -84,11 +85,11 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.2.36'
     runtimeOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.4")
-    compile fg.deobf('curse.maven:mystical-world:3025900')
     compile fg.deobf('curse.maven:tetra:3023406')
-    compile fg.deobf('curse.maven:tetraits:3022588')
-    compile fg.deobf('curse.maven:mysticallib:3005515')
     compile fg.deobf('curse.maven:mgui:2928277')
+    compile fg.deobf('curse.maven:tetraits:3022588')
+    compile fg.deobf('curse.maven:mystical-world:3025900')
+    compile fg.deobf('curse.maven:mysticallib:3005515')
     compile fg.deobf("vazkii.patchouli:Patchouli:1.15.2-1.2-34.184")
 }
 
@@ -96,13 +97,13 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "tetramystical",
-            "Specification-Vendor": "alan19",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"alan19",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Specification-Title"     : "tetramystical",
+                "Specification-Vendor"    : "alan19",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${version}",
+                "Implementation-Vendor"   : "alan19",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }

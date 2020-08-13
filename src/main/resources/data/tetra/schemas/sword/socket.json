@@ -1,0 +1,15 @@
+{
+  "outcomes": [
+    {
+      "material": {
+        "tag": "forge:ingots/tin"
+      },
+      "requiredCapabilities": {
+        "hammer": 1
+      },
+      "experienceCost": 3,
+      "moduleKey": "sword/socket",
+      "moduleVariant": "sword_socket/tin"
+    }
+  ]
+}

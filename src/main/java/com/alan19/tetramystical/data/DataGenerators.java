@@ -1,6 +1,5 @@
 package com.alan19.tetramystical.data;
 
-import com.alan19.tetramystical.TetraMystical;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

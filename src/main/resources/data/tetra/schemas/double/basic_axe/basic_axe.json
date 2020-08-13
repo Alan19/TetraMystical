@@ -1,0 +1,30 @@
+{
+  "outcomes": [
+    {
+      "material": {
+        "tag": "forge:gems/amethyst",
+        "count": 2
+      },
+      "requiredCapabilities": {
+        "hammer": 2
+      },
+      "moduleKey": "double/basic_axe",
+      "moduleVariant": "basic_axe/amethyst",
+      "improvements": {
+        "enchantment/fortune": 1,
+        "enchantment/looting": 1
+      }
+    },
+    {
+      "material": {
+        "tag": "forge:ingots/tin",
+        "count": 2
+      },
+      "requiredCapabilities": {
+        "hammer": 1
+      },
+      "moduleKey": "double/basic_axe",
+      "moduleVariant": "basic_axe/tin"
+    }
+  ]
+}

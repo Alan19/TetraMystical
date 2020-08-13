@@ -1,6 +1,8 @@
 package com.alan19.tetramystical.data;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DirectoryCache;
@@ -14,12 +16,15 @@ import org.apache.logging.log4j.Logger;
 import se.mickelus.tetra.capabilities.Capability;
 import se.mickelus.tetra.data.provider.ModuleBuilder;
 
+import javax.annotation.Nonnull;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class TetraMaterialProvider implements IDataProvider {
     private static final Logger logger = LogManager.getLogger();
@@ -52,13 +57,14 @@ public class TetraMaterialProvider implements IDataProvider {
     private void setup() {
         // the generator uses an existing module variant as a template when generating data, these are matched against the variant key to find a fitting template
         // it matches against them in decending order
-        String[] metalReferences = new String[] { "iron" };
-        String[] woodReferences = new String[] { "oak", "wooden" };
-        String[] gemReferences = new String[] { "diamond" };
+        String[] metalReferences = new String[]{"iron"};
+        String[] woodReferences = new String[]{"oak", "wooden"};
+        String[] gemReferences = new String[]{"diamond"};
 
         // data shared between all module variants of the same materials are defined here, e.g. the localized
         ModuleBuilder.Material amethyst = new ModuleBuilder.Material("amethyst", "amethyst", 0xd9f3ccf, 0x9f3ccf,
-                3, 70, "tag", "forge:gems/amethyst", 1, Capability.hammer, 2, gemReferences);
+                3, 70, "tag", "forge:gems/amethyst", 1, Capability.hammer, 2, gemReferences, Pair.of("enchantment/looting", 1), Pair.of("enchantment/fortune", 1));
+        ModuleBuilder.Material tin = new ModuleBuilder.Material("tin", "tin", 0xd9f3ccf, 0xd9f3ccf, 0, 72, "tag", "forge:ingots/tin", 1, Capability.hammer, 1, metalReferences);
 
         // Setup each module which should have additional variants generated here, using the materials defined above. The material is paired with an
         // an item below which is then used to grab additional data for the module, e.g. damage, mining speed or durability. There are several methods
@@ -71,21 +77,52 @@ public class TetraMaterialProvider implements IDataProvider {
                 "double/basic_pickaxe/basic_pickaxe") // the path for the schema file, I've not been consistent in how I've structured this so double check that this is correct
                 .offsetDurability(-20, 0.5f) // pickaxes have two heads and the default handle has 20 durability so the durability of the module should be = (itemDurability - 20) * 0.5
                 .offsetSpeed(0, 0.5f) // same math goes for the speed, the flimsy handle has no impact on speed so the speed of the item should be split equally between the heads
-                .addVariant(amethyst, "mysticalworld:amethyst_pickaxe", Pair.of("enchantment/fortune", 1));
+                .addVariant(amethyst, "mysticalworld:amethyst_pickaxe");
 
         setupModule("double/basic_axe", "basic_axe", "%s axe", "basic_axe/iron", "double/basic_axe/basic_axe")
                 .offsetOutcome(2, 0) // offsets the amount of material required (defined per material above) by a multiplier of two
                 .offsetDurability(-20, 0.7f)
                 .offsetSpeed(-0.1f, 1)
-                .addVariant(amethyst, "mysticalworld:amethyst_axe", Pair.of("enchantment/looting", 1));
+                .addVariant(amethyst, "mysticalworld:amethyst_axe")
+                .addVariant(tin);
 
         setupModule("double/butt", "butt", "%s butt", "butt/iron", "double/butt/butt")
                 .offsetOutcome(1, -1)
-                .addVariant(amethyst, Pair.of("enchantment/fortune", 1));
+                .addVariant(amethyst)
+                .addVariant(tin);
+
+        setupModule("sword/basic_blade", "basic_blade", "%s blade", "basic_blade/iron", "sword/basic_blade")
+                .offsetDurability(-10, 1)
+                .addVariant(amethyst, "mysticalworld:amethyst_sword")
+                .addVariant(tin);
+
+        setupModule("sword/heavy_blade", "heavy_blade", "Heavy %s blade", "heavy_blade/iron", "sword/heavy_blade")
+                .offsetIntegrity(-1)
+                .offsetSpeed(-.575f, .25f)
+                .offsetDurability(-10, 1)
+                .offsetOutcome(8, 0)
+                .addVariant(amethyst)
+                .addVariant(tin);
+
+        setupModule("sword/machete", "machete", "%s machete", "machete/iron", "sword/machete")
+                .offsetIntegrity(-1)
+                .offsetSpeed((float) (-.2 - 8 / 9f), 1.5f)
+                .offsetOutcome(2, 0)
+                .addVariant(amethyst)
+                .addVariant(tin);
+
+        setupModule("sword/short_blade", "short_blade", "%s short_blade", "short_blade/iron", "sword/short_blade")
+                .offsetSpeed(1 + 1 / 30f, 7 / 3f)
+                .offsetOutcome(1, 1)
+                .addVariant(amethyst, "mysticalworld:amethyst_knife")
+                .addVariant(tin);
+
+        setupModule("sword/socket", "sword_socket", "%s", "socket/diamond", "sword/socket")
+                .addVariant(tin);
     }
 
     @Override
-    public void act(DirectoryCache cache) {
+    public void act(@Nonnull DirectoryCache cache) {
         setup();
 
         builders.forEach(builder -> saveModule(cache, builder.module, builder.getModuleJson()));
@@ -103,7 +140,7 @@ public class TetraMaterialProvider implements IDataProvider {
     private ModuleBuilder setupModule(String module, String prefix, String localization, String fallbackReference, String schemaPath) {
         JsonObject referenceModule = null;
         try {
-            IResource resource = existingFileHelper.getResource(new ResourceLocation("tetra", module), ResourcePackType.SERVER_DATA, ".json", "modules");
+            IResource resource = existingFileHelper.getResource(new ResourceLocation("reference", module), ResourcePackType.SERVER_DATA, ".json", "modules");
             BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()));
             referenceModule = gson.fromJson(reader, JsonObject.class);
 
@@ -146,6 +183,6 @@ public class TetraMaterialProvider implements IDataProvider {
 
     @Override
     public String getName() {
-        return "tetra module data provider";
+        return "tetramystical module data provider";
     }
 }
