@@ -13,6 +13,20 @@
         "enchantment/fortune": 1,
         "enchantment/looting": 1
       }
+    },
+    {
+      "material": {
+        "tag": "forge:ingots/quicksilver"
+      },
+      "moduleKey": "double/butt",
+      "moduleVariant": "butt/quicksilver"
+    },
+    {
+      "material": {
+        "item": "minecraft:cactus"
+      },
+      "moduleKey": "double/butt",
+      "moduleVariant": "butt/cactus"
     }
   ]
 }

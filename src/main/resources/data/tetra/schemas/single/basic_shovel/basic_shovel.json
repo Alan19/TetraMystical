@@ -5,10 +5,10 @@
         "tag": "forge:gems/amethyst"
       },
       "requiredCapabilities": {
-        "hammer": 3
+        "hammer": 2
       },
-      "moduleKey": "sword/short_blade",
-      "moduleVariant": "short_blade/amethyst",
+      "moduleKey": "single/basic_shovel",
+      "moduleVariant": "basic_shovel/amethyst",
       "improvements": {
         "enchantment/fortune": 1,
         "enchantment/looting": 1
@@ -19,20 +19,20 @@
         "tag": "forge:ingots/quicksilver"
       },
       "requiredCapabilities": {
-        "hammer": 2
+        "hammer": 1
       },
-      "moduleKey": "sword/short_blade",
-      "moduleVariant": "short_blade/quicksilver"
+      "moduleKey": "single/basic_shovel",
+      "moduleVariant": "basic_shovel/quicksilver"
     },
     {
       "material": {
         "item": "minecraft:cactus"
       },
       "requiredCapabilities": {
-        "cut": 2
+        "cut": 1
       },
-      "moduleKey": "sword/short_blade",
-      "moduleVariant": "short_blade/cactus"
+      "moduleKey": "single/basic_shovel",
+      "moduleVariant": "basic_shovel/cactus"
     }
   ]
 }

@@ -13,6 +13,26 @@
         "enchantment/fortune": 1,
         "enchantment/looting": 1
       }
+    },
+    {
+      "material": {
+        "tag": "forge:ingots/quicksilver"
+      },
+      "requiredCapabilities": {
+        "hammer": 1
+      },
+      "moduleKey": "sword/basic_blade",
+      "moduleVariant": "basic_blade/quicksilver"
+    },
+    {
+      "material": {
+        "item": "minecraft:cactus"
+      },
+      "requiredCapabilities": {
+        "cut": 1
+      },
+      "moduleKey": "sword/basic_blade",
+      "moduleVariant": "basic_blade/cactus"
     }
   ]
 }

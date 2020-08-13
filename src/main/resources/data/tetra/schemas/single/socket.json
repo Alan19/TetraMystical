@@ -7,8 +7,8 @@
       "requiredCapabilities": {
         "hammer": 1
       },
-      "moduleKey": "sword/socket",
-      "moduleVariant": "sword_socket/tin",
+      "moduleKey": "single/socket",
+      "moduleVariant": "single_socket/tin",
       "reach": 0.25
     },
     {
@@ -18,8 +18,8 @@
       "requiredCapabilities": {
         "hammer": 2
       },
-      "moduleKey": "sword/socket",
-      "moduleVariant": "sword_socket/lead"
+      "moduleKey": "single/socket",
+      "moduleVariant": "single_socket/lead"
     },
     {
       "material": {
@@ -28,8 +28,8 @@
       "requiredCapabilities": {
         "hammer": 1
       },
-      "moduleKey": "sword/socket",
-      "moduleVariant": "sword_socket/quicksilver"
+      "moduleKey": "single/socket",
+      "moduleVariant": "single_socket/quicksilver"
     },
     {
       "material": {
@@ -38,8 +38,8 @@
       "requiredCapabilities": {
         "hammer": 2
       },
-      "moduleKey": "sword/socket",
-      "moduleVariant": "sword_socket/amethyst",
+      "moduleKey": "single/socket",
+      "moduleVariant": "single_socket/amethyst",
       "improvements": {
         "enchantment/fortune": 1,
         "enchantment/looting": 1

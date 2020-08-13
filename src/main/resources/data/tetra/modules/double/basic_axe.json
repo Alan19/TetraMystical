@@ -2,8 +2,8 @@
   "variants": [
     {
       "key": "basic_axe/amethyst",
-      "durability": 658,
-      "integrity": -3,
+      "durability": 705,
+      "integrity": -1,
       "magicCapacity": 70,
       "damage": 9.0,
       "attackSpeed": -0.7999999061226846,
@@ -21,6 +21,64 @@
         "axe": [
           3,
           8.88888794698843
+        ]
+      },
+      "effects": {
+        "stripping": 1
+      },
+      "effect": {}
+    },
+    {
+      "key": "basic_axe/quicksilver",
+      "durability": 41,
+      "integrity": -1,
+      "magicCapacity": 110,
+      "damage": 8.5,
+      "attackSpeed": -0.29999990612268457,
+      "glyph": {
+        "tint": "b4c3c4",
+        "textureX": 144
+      },
+      "models": [
+        {
+          "location": "tetra:items/module/double/head/basic_axe/metal",
+          "tint": "b4c3c4"
+        }
+      ],
+      "capabilities": {
+        "axe": [
+          3,
+          4.2857139937731885
+        ]
+      },
+      "effects": {
+        "stripping": 1
+      },
+      "effect": {
+        "quickStrike": 1
+      }
+    },
+    {
+      "key": "basic_axe/cactus",
+      "durability": 42,
+      "integrity": 0,
+      "magicCapacity": 15,
+      "damage": 4.5,
+      "attackSpeed": -0.7999999061226846,
+      "glyph": {
+        "tint": "649832",
+        "textureX": 144
+      },
+      "models": [
+        {
+          "location": "tetra:items/module/double/head/basic_axe/crude",
+          "tint": "649832"
+        }
+      ],
+      "capabilities": {
+        "axe": [
+          1,
+          4.444443973494215
         ]
       },
       "effects": {
