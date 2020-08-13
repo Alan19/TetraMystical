@@ -58,7 +58,8 @@ minecraft {
 
             args '--all',
                     '--output', file('src/generated/resources/'),
-                    '--existing', sourceSets.main.resources.srcDirs[0],
+                    '--existing', 'D:\\Users\\alanx\\IdeaProjects\\TetraMystical\\tetra\\src\\main\\resources',
+//                    '--existing', sourceSets.main.resources.srcDirs[0],
                     '--mod', 'tetramystical', '--reports'
         }
     }
