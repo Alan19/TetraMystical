@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "material": {
+        "tag": "forge:gems/amethyst"
+      },
+      "requiredCapabilities": {
+        "hammer": 2
+      },
+      "moduleKey": "double/basic_pickaxe",
+      "moduleVariant": "basic_pickaxe/amethyst",
+      "improvements": {
+        "enchantment/fortune": 1,
+        "enchantment/looting": 1
+      }
+    }
+  ]
+}

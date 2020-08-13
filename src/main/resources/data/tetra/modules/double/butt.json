@@ -1,0 +1,25 @@
+{
+  "variants": [
+    {
+      "key": "butt/amethyst",
+      "durability": 548,
+      "magicCapacity": 70,
+      "integrity": -3,
+      "damage": 1,
+      "glyph": {
+        "tint": "d9f3ccf",
+        "textureX": 160
+      },
+      "models": [
+        {
+          "location": "tetra:items/module/double/head/butt/shiny",
+          "tint": "9f3ccf"
+        }
+      ],
+      "capabilities": {
+        "hammer": 1
+      },
+      "effect": {}
+    }
+  ]
+}

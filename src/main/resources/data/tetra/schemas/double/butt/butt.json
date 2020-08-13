@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "material": {
+        "tag": "forge:gems/amethyst"
+      },
+      "requiredCapabilities": {
+        "hammer": 1
+      },
+      "moduleKey": "double/butt",
+      "moduleVariant": "butt/amethyst",
+      "improvements": {
+        "enchantment/fortune": 1,
+        "enchantment/looting": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "variants": [
+    {
+      "key": "machete/amethyst",
+      "durability": 1492,
+      "integrity": -4,
+      "magicCapacity": 70,
+      "damage": 6,
+      "attackSpeed": 0,
+      "glyph": {
+        "tint": "d9f3ccf",
+        "textureY": 32,
+        "textureX": 48
+      },
+      "effects": {
+        "sweeping": 1,
+        "strikingCut": 1,
+        "sweepingStrike": 1
+      },
+      "capabilities": {
+        "cut": [
+          1,
+          0.9375
+        ]
+      },
+      "models": [
+        {
+          "location": "tetra:items/module/sword/blade/machete/metal",
+          "tint": "9f3ccf"
+        }
+      ],
+      "effect": {}
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "variants": [
+    {
+      "key": "sword_socket/tin",
+      "durability": 412,
+      "integrity": 0,
+      "glyph": {
+        "tint": "d9f3ccf",
+        "textureX": 80,
+        "textureY": 16
+      },
+      "models": [
+        {
+          "location": "tetra:items/module/sword/guard/socket/default",
+          "tint": "d9f3ccf"
+        }
+      ],
+      "magicCapacity": 72,
+      "effect": {}
+    },
+    {
+      "key": "sword_socket/lead",
+      "durability": 412,
+      "integrity": 0,
+      "glyph": {
+        "tint": "d9f3ccf",
+        "textureX": 80,
+        "textureY": 16
+      },
+      "models": [
+        {
+          "location": "tetra:items/module/sword/guard/socket/default",
+          "tint": "d9f3ccf"
+        }
+      ],
+      "magicCapacity": 10,
+      "effect": {
+        "toughness": 1
+      }
+    }
+  ]
+}

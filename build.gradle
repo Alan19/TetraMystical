@@ -58,8 +58,8 @@ minecraft {
 
             args '--all',
                     '--output', file('src/generated/resources/'),
-                    '--existing', 'D:\\Users\\alanx\\IdeaProjects\\TetraMystical\\tetra\\src\\main\\resources',
-//                    '--existing', sourceSets.main.resources.srcDirs[0],
+                    '--existing', file('tetra/src/main/resources'),
+                    '--existing', sourceSets.main.resources.srcDirs[0],
                     '--mod', 'tetramystical', '--reports'
         }
     }
@@ -86,7 +86,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.2.36'
     runtimeOnly fg.deobf("mezz.jei:jei-1.15.2:6.0.0.4")
-    compile fg.deobf('curse.maven:tetra:3023406')
+    compile fg.deobf('se.mickelus.tetra:tetra:1.15.2-2.13.0')
     compile fg.deobf('curse.maven:mgui:2928277')
     compile fg.deobf('curse.maven:tetraits:3022588')
     compile fg.deobf('curse.maven:mystical-world:3025900')

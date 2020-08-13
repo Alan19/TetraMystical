@@ -1,0 +1,29 @@
+{
+  "variants": [
+    {
+      "key": "short_blade/amethyst",
+      "durability": 960,
+      "integrity": -3,
+      "magicCapacity": 70,
+      "damage": 3.0,
+      "attackSpeed": 4.511110883288915,
+      "capabilities": {
+        "cut": [
+          0,
+          0.0
+        ]
+      },
+      "glyph": {
+        "tint": "d9f3ccf",
+        "textureX": 32
+      },
+      "models": [
+        {
+          "location": "tetra:items/module/sword/blade/short/shiny",
+          "tint": "9f3ccf"
+        }
+      ],
+      "effect": {}
+    }
+  ]
+}

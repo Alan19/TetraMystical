@@ -65,21 +65,21 @@ public class TetraMaterialProvider implements IDataProvider {
         // data shared between all module variants of the same materials are defined here, e.g. the localized
         ModuleBuilder.Material amethyst = new ModuleBuilder.Material("amethyst", "amethyst", 0xd9f3ccf, 0x9f3ccf,
                 3, 70, "tag", "forge:gems/amethyst", 1, Capability.hammer, 2, gemReferences, Pair.of("enchantment/looting", 1), Pair.of("enchantment/fortune", 1));
-        ModuleBuilder.Material tin = new ModuleBuilder.Material("tin", "tin", 0xd9f3ccf, 0xd9f3ccf, 0, 72, "tag", "forge:ingots/tin", 1, Capability.hammer, 1, metalReferences);
-        ModuleBuilder.Material lead = new ModuleBuilder.Material("lead", "lead", 0xd9f3ccf, 0xd9f3ccf, 0, 10, "tag", "forge:ingots/tin", 1, Capability.hammer, 2, metalReferences);
+        ModuleBuilder.Material tin = new ModuleBuilder.Material("tin", "tin", 0xd9f3ccf, 0xd9f3ccf, 0, 72, "tag", "forge:ingots/tin", 1, Capability.hammer, 1, metalReferences).addVariantData("reach", 0.25);
+        ModuleBuilder.Material lead = new ModuleBuilder.Material("lead", "lead", 0xd9f3ccf, 0xd9f3ccf, 0, 10, "tag", "forge:ingots/tin", 1, Capability.hammer, 2, metalReferences).addItemEffect(ItemEffect.toughness, 1);
 
         // Setup each module which should have additional variants generated here, using the materials defined above. The material is paired with an
         // an item below which is then used to grab additional data for the module, e.g. damage, mining speed or durability. There are several methods
         // for offsetting the values that are grabbed from both the item and the material
-//        setupModule(
-//                "double/basic_pickaxe", // this is resource location / path for the module, check src/main/resources/data/tetra/modules to see what's available
-//                "basic_pickaxe", // this will be used to prefix variant keys, variant keys typically begin with the module name e.g. basic_pickaxe/iron
-//                "%s pick", // %s will be replaced by the localization entry for each material to produce the names for all module variants
-//                "basic_pickaxe/iron", // the generator will fall back to using the variant with this key if none of the references from the material matches any variant key
-//                "double/basic_pickaxe/basic_pickaxe") // the path for the schema file, I've not been consistent in how I've structured this so double check that this is correct
-//                .offsetDurability(-20, 0.5f) // pickaxes have two heads and the default handle has 20 durability so the durability of the module should be = (itemDurability - 20) * 0.5
-//                .offsetSpeed(0, 0.5f) // same math goes for the speed, the flimsy handle has no impact on speed so the speed of the item should be split equally between the heads
-//                .addVariant(amethyst, "mysticalworld:amethyst_pickaxe");
+        setupModule(
+                "double/basic_pickaxe", // this is resource location / path for the module, check src/main/resources/data/tetra/modules to see what's available
+                "basic_pickaxe", // this will be used to prefix variant keys, variant keys typically begin with the module name e.g. basic_pickaxe/iron
+                "%s pick", // %s will be replaced by the localization entry for each material to produce the names for all module variants
+                "basic_pickaxe/iron", // the generator will fall back to using the variant with this key if none of the references from the material matches any variant key
+                "double/basic_pickaxe/basic_pickaxe") // the path for the schema file, I've not been consistent in how I've structured this so double check that this is correct
+                .offsetDurability(-20, 0.5f) // pickaxes have two heads and the default handle has 20 durability so the durability of the module should be = (itemDurability - 20) * 0.5
+                .offsetSpeed(0, 0.5f) // same math goes for the speed, the flimsy handle has no impact on speed so the speed of the item should be split equally between the heads
+                .addVariant(amethyst, "mysticalworld:amethyst_pickaxe");
 
         setupModule("double/basic_axe", "basic_axe", "%s axe", "basic_axe/iron", "double/basic_axe/basic_axe")
                 .offsetOutcome(2, 0) // offsets the amount of material required (defined per material above) by a multiplier of two
@@ -114,7 +114,8 @@ public class TetraMaterialProvider implements IDataProvider {
                 .addVariant(amethyst, "mysticalworld:amethyst_knife");
 
         setupModule("sword/socket", "sword_socket", "%s", "socket/diamond", "sword/socket")
-                .addVariant(tin).addVariant(lead);
+                .addVariant(tin)
+                .addVariant(lead);
     }
 
     @Override

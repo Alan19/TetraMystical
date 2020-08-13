@@ -1,0 +1,18 @@
+{
+  "outcomes": [
+    {
+      "material": {
+        "tag": "forge:gems/amethyst"
+      },
+      "requiredCapabilities": {
+        "hammer": 3
+      },
+      "moduleKey": "sword/short_blade",
+      "moduleVariant": "short_blade/amethyst",
+      "improvements": {
+        "enchantment/fortune": 1,
+        "enchantment/looting": 1
+      }
+    }
+  ]
+}
